@@ -3,9 +3,9 @@ require 'yaml'
 
 def load_library(file_path)
   #code goes here
-  emojis = YAML.load_file(file_path)
+  emoticons = YAML.load_file(file_path)
   new_hash = {}
-  emojis.each do |key, value|
+  emoticons.each do |key, value|
     new_hash[key] = {}
     new_hash[key][english:] = value[0]
     new_hash[key][japanese:] = value[1]
@@ -13,20 +13,20 @@ def load_library(file_path)
   new_hash
 end
 
-def get_japanese_emoticon(file_path, emojis)
+def get_japanese_emoticon(file_path, emoticons)
   #code goes here
   library = load_library(file_path)
-  emojis = library.keys.find do |key|
-    library[key][english:] == emojis
+  emoticons = library.keys.find do |key|
+    library[key][english:] == emoticons
   end
-  emojis ? library[emojis][japanese:] : "Sorry, that emoji was not found"
+  emoticons ? library[emoticons][japanese:] : "Sorry, that emoticons was not found"
 end
 
-def get_english_meaning(file_path, emojis)
+def get_english_meaning(file_path, emoticons)
   #code goes here
   library = load_library(file_path)
-emojis = library.keys.find do |key|
-  library[key][japanee:] == emojis
+emoticons = library.keys.find do |key|
+  library[key][japanee:] == emoticons
 end
-emojis ? emojis : "Sorry, that emoji was not found"
+emoticons ? emoticons : "Sorry, that emoticons was not found"
 end
