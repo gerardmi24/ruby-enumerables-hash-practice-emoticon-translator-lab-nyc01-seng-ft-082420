@@ -22,13 +22,11 @@ def get_japanese_emoticon(file_path, emojis)
   emojis ? library[emojis][japanese:] : "Sorry, that emoji was not found"
 end
 
-def get_english_meaning(file_path, emoticon)
+def get_english_meaning(file_path, emojis)
   #code goes here
   library = load_library(file_path)
-  result = library["get_meaning"][emoticon]
-  if result
-    result
-  else
-    "Sorry, that emoticon was not found"
-  end
+emojis = library.keys.find do |key|
+  library[key][japanee:] == emojis
+end
+emojis ? emojis : "Sorry, that emoji was not found"
 end
